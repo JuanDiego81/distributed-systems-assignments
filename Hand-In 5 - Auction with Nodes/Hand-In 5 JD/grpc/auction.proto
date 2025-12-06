@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option go_package = "Auction/grpc/proto";
+
+service AuctionService {
+  // Client-facing RPCs
+  rpc Bid(BidRequest) returns (BidResponse);    // from any client (any node)
+  rpc Result(ResultRequest) returns (ResultResponse);   // Retrieve current highest bid or final result 
+
+  // Internal replication RPC used only between nodes
+  rpc Replicate(ReplicationRequest) returns (ReplicationAck);   // from pimrary node, it Sync state across replicas
+}
+
+message BidRequest {
+  string bidder = 1;    // id of bidder
+  int32 amount = 2;
+}
+
+message BidResponse {
+  string outcome = 1; // "success", "fail", "exception"
+  string error = 2;
+}
+
+message ResultRequest {}    // no argument per instructions
+message ResultResponse {   
+  bool over = 1;    // is the action over
+  string highestBidder = 2;     // who leads currently
+  int32 highestBid = 3;          // highest amount of a bid
+  string message = 4;           
+}
+
+// Replication message
+message ReplicationRequest {
+  string bidder = 1;
+  int32 amount = 2;
+  bool closed = 3;
+}
+
+message ReplicationAck {
+  bool ok = 1;
+}
