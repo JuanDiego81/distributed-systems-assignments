@@ -1,0 +1,45 @@
+2025/10/29 13:07:08 server.go:223: [Server][STARTUP] ChitChat server started on [::]:50051
+2025/10/29 13:07:55 server.go:106: [Server][CONNECT] id=user-1 user=Marc
+2025/10/29 13:07:55 server.go:107: [Server][BROADCAST] Participant Marc joined Chit Chat at logical time 1.
+2025/10/29 13:07:55 server.go:180: [Server][DELIVER] to=user-1 type=system L=1
+2025/10/29 13:08:01 server.go:106: [Server][CONNECT] id=user-2 user=Charles
+2025/10/29 13:08:01 server.go:107: [Server][BROADCAST] Participant Charles joined Chit Chat at logical time 2.
+2025/10/29 13:08:01 server.go:180: [Server][DELIVER] to=user-2 type=system L=2
+2025/10/29 13:08:01 server.go:180: [Server][DELIVER] to=user-1 type=system L=2
+2025/10/29 13:08:07 server.go:106: [Server][CONNECT] id=user-3 user=Henry
+2025/10/29 13:08:07 server.go:107: [Server][BROADCAST] Participant Henry joined Chit Chat at logical time 3.
+2025/10/29 13:08:07 server.go:180: [Server][DELIVER] to=user-1 type=system L=3
+2025/10/29 13:08:07 server.go:180: [Server][DELIVER] to=user-2 type=system L=3
+2025/10/29 13:08:07 server.go:180: [Server][DELIVER] to=user-3 type=system L=3
+2025/10/29 13:08:12 server.go:145: [Server][MSG] user=Marc id=user-1 L=4: Hello
+2025/10/29 13:08:12 server.go:180: [Server][DELIVER] to=user-2 type=message L=4
+2025/10/29 13:08:12 server.go:180: [Server][DELIVER] to=user-3 type=message L=4
+2025/10/29 13:08:12 server.go:180: [Server][DELIVER] to=user-1 type=message L=4
+2025/10/29 13:08:17 server.go:145: [Server][MSG] user=Charles id=user-2 L=7: Hi
+2025/10/29 13:08:17 server.go:180: [Server][DELIVER] to=user-1 type=message L=7
+2025/10/29 13:08:17 server.go:180: [Server][DELIVER] to=user-2 type=message L=7
+2025/10/29 13:08:17 server.go:180: [Server][DELIVER] to=user-3 type=message L=7
+2025/10/29 13:08:22 server.go:145: [Server][MSG] user=Henry id=user-3 L=10: Hi there
+2025/10/29 13:08:22 server.go:180: [Server][DELIVER] to=user-2 type=message L=10
+2025/10/29 13:08:22 server.go:180: [Server][DELIVER] to=user-3 type=message L=10
+2025/10/29 13:08:22 server.go:180: [Server][DELIVER] to=user-1 type=message L=10
+2025/10/29 13:08:28 server.go:145: [Server][MSG] user=Marc id=user-1 L=13: Gotta go
+2025/10/29 13:08:28 server.go:180: [Server][DELIVER] to=user-2 type=message L=13
+2025/10/29 13:08:28 server.go:180: [Server][DELIVER] to=user-3 type=message L=13
+2025/10/29 13:08:28 server.go:180: [Server][DELIVER] to=user-1 type=message L=13
+2025/10/29 13:08:32 server.go:127: [Server][DISCONNECT] id=user-1 user=Marc
+2025/10/29 13:08:32 server.go:128: [Server][BROADCAST] Participant Marc left Chit Chat at logical time 14.
+2025/10/29 13:08:32 server.go:180: [Server][DELIVER] to=user-2 type=system L=14
+2025/10/29 13:08:32 server.go:180: [Server][DELIVER] to=user-3 type=system L=14
+2025/10/29 13:08:56 server.go:145: [Server][MSG] user=Charles id=user-2 L=16: me too
+2025/10/29 13:08:56 server.go:180: [Server][DELIVER] to=user-3 type=message L=16
+2025/10/29 13:08:56 server.go:180: [Server][DELIVER] to=user-2 type=message L=16
+2025/10/29 13:08:59 server.go:127: [Server][DISCONNECT] id=user-2 user=Charles
+2025/10/29 13:08:59 server.go:128: [Server][BROADCAST] Participant Charles left Chit Chat at logical time 17.
+2025/10/29 13:08:59 server.go:180: [Server][DELIVER] to=user-3 type=system L=17
+2025/10/29 13:09:04 server.go:145: [Server][MSG] user=Henry id=user-3 L=19: Same
+2025/10/29 13:09:04 server.go:180: [Server][DELIVER] to=user-3 type=message L=19
+2025/10/29 13:09:07 server.go:127: [Server][DISCONNECT] id=user-3 user=Henry
+2025/10/29 13:09:07 server.go:128: [Server][BROADCAST] Participant Henry left Chit Chat at logical time 20.
+2025/10/29 13:26:24 server.go:216: [Server][SHUTDOWN] signal=interrupt
+2025/10/29 13:26:24 server.go:220: [Server][STOPPED]

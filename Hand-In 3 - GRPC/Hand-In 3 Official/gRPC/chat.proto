@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "chitchat/grpc/proto";
+
+message ChatMessage {
+    string id = 1;
+    string sender = 2;
+    string content = 3;
+    uint64 logical_time = 4;
+    string type = 5;
+}
+
+message ConnectRequest {
+    string username = 1;
+}
+
+service ChitChat {
+    // Bi-directional streaming for continuous chat
+    rpc Chat(stream ChatMessage) returns (stream ChatMessage);
+}

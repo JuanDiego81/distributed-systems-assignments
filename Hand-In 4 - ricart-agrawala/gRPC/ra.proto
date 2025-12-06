@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+// Where generated Go files will be placed
+option go_package = "ricart-agrawala/grpc/proto";
+
+// Defines a Mutex gRPC service for Ricart–Agrawala messages
+service Mutex {
+    // When a node requests access to the critical section
+    rpc Request(RequestMsg) returns (Ack);  // The Ack is a dummy or placeholder response type that’s used for acknowledging that an RPC call was received and processed successfully.
+
+    // When a node replies (grants permission)
+    rpc Reply(ReplyMsg) returns (Ack);
+}
+
+// The message a node sends when it wants to enter CS
+message RequestMsg {
+    int32 from_id = 1;      // The ID of the node that sent the request
+    int32 timestamp = 2;    // Lamport logical timestamp of that request
+}
+
+// The message a node sends to grant permission
+message ReplyMsg {
+    int32 from_id = 1;      // The ID of the replying node
+}
+
+// Empty message returned by both RPCs
+message Ack {}
+
+
